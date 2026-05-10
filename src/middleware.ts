@@ -15,7 +15,7 @@ export async function middleware(request: NextRequest) {
           return request.cookies.getAll();
         },
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) =>
+          cookiesToSet.forEach(({ name, value }) =>
             request.cookies.set(name, value),
           );
           supabaseResponse = NextResponse.next({
@@ -33,16 +33,20 @@ export async function middleware(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  // Dacă utilizatorul nu e logat și încearcă să acceseze pagina principală
-  // îl redirecționăm către /login
-  if (!user && request.nextUrl.pathname === "/") {
+  // Definim care sunt rutele unde ai voie să intri FĂRĂ să fii logat
+  const isPublicRoute =
+    request.nextUrl.pathname === "/login" ||
+    request.nextUrl.pathname === "/register";
+
+  // Dacă NU ești logat și încerci să intri pe o rută privată (Dashboard), te trimite la login
+  if (!user && !isPublicRoute) {
     const url = request.nextUrl.clone();
     url.pathname = "/login";
     return NextResponse.redirect(url);
   }
 
-  // Dacă e logat și e pe /login, îl trimitem pe pagina principală
-  if (user && request.nextUrl.pathname === "/login") {
+  // Dacă EȘTI logat deja și încerci să intri pe login sau register, te trimite la Dashboard
+  if (user && isPublicRoute) {
     const url = request.nextUrl.clone();
     url.pathname = "/";
     return NextResponse.redirect(url);

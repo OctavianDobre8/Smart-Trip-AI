@@ -1,7 +1,7 @@
-import { login } from "./actions";
+import { signup } from "../login/actions";
 import Link from "next/link";
 
-export default async function LoginPage({
+export default async function RegisterPage({
   searchParams,
 }: {
   searchParams: Promise<{ message: string }>;
@@ -9,17 +9,17 @@ export default async function LoginPage({
   const { message } = await searchParams;
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 to-gray-100 px-4">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-indigo-50 to-white px-4">
       <div className="w-full max-w-md space-y-8 rounded-2xl bg-white p-10 shadow-xl border border-gray-100">
         <div className="text-center">
-          <div className="mx-auto h-12 w-12 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl shadow-lg mb-4">
-            🌍
+          <div className="mx-auto h-12 w-12 bg-indigo-600 rounded-full flex items-center justify-center text-white text-2xl shadow-lg mb-4">
+            🚀
           </div>
           <h2 className="text-3xl font-extrabold text-gray-900">
-            Bine ai revenit
+            Creează cont nou
           </h2>
           <p className="mt-2 text-sm text-gray-600">
-            Loghează-te pentru a-ți accesa asistentul de călătorii
+            Alătură-te și planifică-ți următoarea aventură
           </p>
         </div>
 
@@ -30,14 +30,14 @@ export default async function LoginPage({
                 htmlFor="email"
                 className="block text-sm font-medium text-gray-700 mb-1"
               >
-                Email
+                Adresă Email
               </label>
               <input
                 id="email"
                 name="email"
                 type="email"
                 required
-                className="block w-full rounded-lg border-gray-300 px-4 py-3 text-gray-900 border focus:border-blue-500 focus:ring-blue-500 sm:text-sm transition-colors"
+                className="block w-full rounded-lg border-gray-300 px-4 py-3 text-gray-900 border focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm transition-colors"
                 placeholder="nume@exemplu.com"
               />
             </div>
@@ -46,14 +46,15 @@ export default async function LoginPage({
                 htmlFor="password"
                 className="block text-sm font-medium text-gray-700 mb-1"
               >
-                Parolă
+                Parolă (minim 6 caractere)
               </label>
               <input
                 id="password"
                 name="password"
                 type="password"
                 required
-                className="block w-full rounded-lg border-gray-300 px-4 py-3 text-gray-900 border focus:border-blue-500 focus:ring-blue-500 sm:text-sm transition-colors"
+                minLength={6}
+                className="block w-full rounded-lg border-gray-300 px-4 py-3 text-gray-900 border focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm transition-colors"
                 placeholder="••••••••"
               />
             </div>
@@ -66,20 +67,20 @@ export default async function LoginPage({
           )}
 
           <button
-            formAction={login}
-            className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all transform hover:scale-[1.02]"
+            formAction={signup}
+            className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all transform hover:scale-[1.02]"
           >
-            Intră în cont
+            Creează Contul
           </button>
         </form>
 
         <p className="text-center text-sm text-gray-600 mt-6">
-          Nu ai cont?{" "}
+          Ai deja un cont?{" "}
           <Link
-            href="/register"
-            className="font-semibold text-blue-600 hover:text-blue-500 transition-colors"
+            href="/login"
+            className="font-semibold text-indigo-600 hover:text-indigo-500 transition-colors"
           >
-            Înregistrează-te gratuit
+            Loghează-te aici
           </Link>
         </p>
       </div>
