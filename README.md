@@ -4,7 +4,7 @@
 | -------------------- | ------------------------------------------------------------------------ |
 | **Nume Prenume**     | Dobre Octavian-Ștefan                                                    |
 | **Grupa**            | 1146                                                                     |
-| **Video prezentare** | _(adaugă link YouTube)_                                                  |
+| **Video prezentare** | <https://youtu.be/m9RjsbK1hYs?si=BCVGSfl9GRYGP-87>                       |
 | **Link publicare**   | [smart-trip-ai-seven.vercel.app](https://smart-trip-ai-seven.vercel.app) |
 
 ---
@@ -138,13 +138,11 @@ Securitatea aplicației este gestionată prin **Supabase Auth** și funcționeaz
 
 ### Pagina de Autentificare / Înregistrare
 
-> _(Înlocuiește cu o imagine locală sau un link după realizarea capturii)_
+![Pagina de Login](./docs/login.png)
 
 ### Dashboard-ul Principal
 
-> _(Înlocuiește cu o imagine locală sau un link după realizarea capturii)_
-
----
+![Dashboard](./docs/dashboard.png)
 
 ## 6. Referințe
 
