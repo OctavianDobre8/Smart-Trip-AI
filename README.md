@@ -138,11 +138,11 @@ Securitatea aplicației este gestionată prin **Supabase Auth** și funcționeaz
 
 ### Pagina de Autentificare / Înregistrare
 
-![Pagina de Login](./docs/login.png)
+![Pagina de Login](./docs/Login.png)
 
 ### Dashboard-ul Principal
 
-![Dashboard](./docs/dashboard.png)
+![Dashboard](./docs/Dashboard.png)
 
 ## 6. Referințe
 
